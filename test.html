@@ -22,6 +22,20 @@
   }
 </style>
 
+<!-- ADD SUCH COMPONENT FOR EACH TARGET -->
+<script>
+  AFRAME.registerComponent('markerhandler', {
+    init: function () {
+      this.el.sceneEl.addEventListener('markerFound', () => {
+        // redirect to custom URL
+        alert("SOME HINT! OR REDIRECT TO IMAGE!")
+        window.location = 'https://flxt.tmsimg.com/assets/p481593_b_v8_ad.jpg';
+        
+      })}})
+
+</script>
+
+
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
@@ -35,8 +49,9 @@
   >
     <!-- we use cors proxy to avoid cross-origin problems -->
     <a-nft
+      markerhandler
       type="nft"
-      url="Clue-02-03-HD"
+      url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/siddu1998/ResilienceAR/main/test/aku"
       smooth="true"
       smoothCount="10"
       smoothTolerance=".01"
@@ -49,6 +64,6 @@
       >
       </a-entity>
     </a-nft>
-    <a-entity url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/siddu1998/ResilienceAR/main/test/aku"> </a-entity>
+    <a-entity camera></a-entity>
   </a-scene>
 </body>
