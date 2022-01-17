@@ -21,6 +21,18 @@
     color: white;
   }
 </style>
+<script>
+  AFRAME.registerComponent('markerhandler', {
+    init: function () {
+      this.el.sceneEl.addEventListener('markerFound', () => {
+        // redirect to custom URL
+        alert("SOME HINT! OR REDIRECT TO IMAGE!")
+        window.location = 'https://github.com/AR-js-org/AR.js';
+        
+      })}})
+
+</script>
+
 
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
@@ -34,9 +46,11 @@
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
     <!-- we use cors proxy to avoid cross-origin problems -->
+    <!-- https://carnaux.github.io/NFT-Marker-Creator/#/ USE THIS TO CONVERT IMAGE OBJECT TO NFT -->
     <a-nft
+      markerhandler
       type="nft"
-      url="Clue-02-03-HD"
+      url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/siddu1998/ResilienceAR/main/Clue-02-03-HD/Clue-02-03-HD"
       smooth="true"
       smoothCount="10"
       smoothTolerance=".01"
